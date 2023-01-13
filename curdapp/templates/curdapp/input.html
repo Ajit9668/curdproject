@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Page</title>
+    <style>
+        input[name]{margin-top: 7px;}
+        input[value]{margin-top:5px;}
+        form{box-shadow:0px 0px 10px red; padding:5px; border-radius: 5%;}
+    </style>
+    {% include 'curdapp/cdnline.html' %}
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="offset-4 col-md-4">
+                <h4 class="text-center mt-5"> Please Enter Employees data</h4>
+                <form method="POST">
+                    {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <label>First Name:</label>
+                <input type="text" name="fname" class="form-control">
+            </div>
+            <div class="col-md-6">                    
+                <label>Last Name:</label>
+                <input type="text" name="lname" class="form-control">
+            </div>
+        </div>
+                <!-- <label>Email Id:</label> -->
+                <input type="email" name="email" class="form-control" placeholder="Email Id">
+                <!-- <label>MObile No:</label> -->
+                <input type="number" name="mobile" class="form-control" placeholder="Mobile No">
+                <!-- <label>Company:</label> -->
+                <input type="text" name="company" class="form-control" placeholder="Company Name">
+                <!-- <label>Enter Salary:</label> -->
+                <input type="number" name="salary" class="form-control" placeholder="Salary">
+                <!-- <label>Enter location</label> -->
+                <input type="text" name="location" class="form-control" placeholder="Location">
+            <center>
+                <input type="submit" value="Add Emp" class="btn btn-success">
+                <input type="reset" value="Clear" class="btn btn-danger">
+            </center>
+            </form>           
+            <a href="{% url 'result'%}" class="btn btn-warning offset-3 mt-2">Goto Result Page..</a>            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

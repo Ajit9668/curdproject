@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result Page</title>
+    {% include 'curdapp/cdnline.html' %}
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Employees Data Table</h1>
+                <div class="text-right  mb-5">
+                    <a href="{% url 'input' %}" class="btn-success text-white btn btn-lg">Add New Employees</a>
+                </div>
+                {% if emps %}
+                <table class=" table table-bordered text-center">
+                    <thead class="bg-success text-white">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Company</th>
+                            <th>Salary</th>
+                            <th>Location</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-dark text-white">
+                        {% for i in emps %}
+                        <tr>
+                            <td>{{i.first_name}}</td>
+                            <td>{{i.last_name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.mobile}}</td>
+                            <td>{{i.company}}</td>
+                            <td>{{i.salary}}</td>
+                            <td>{{i.location}}</td>
+                        <td><a href="{% url 'update' i.id %}" class="btn-warning text-white btn btn-md">Update</a>
+                            <a href="{% url 'delete' i.id %}" class="btn-danger text-white btn btn-md">Delete</a>
+                        </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h1 class="text-center">Employees Data Not Available</h1>
+                {% endif %}
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
+
+
+
+
